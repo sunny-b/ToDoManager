@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>249 Assessment</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="sidebar"></header>
+
+    <main></main>
+
+    <script id="sideBar" type="text/x-handlebars">
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle"><img src="assets/burger.png" alt="menu item"></label>
+      <div class="header_content">
+        <div class="all_todos">
+          <div class="col" data-cate="all">
+            <h1>All Todos</h1>
+            <span class="small_number">{{totalAll}}</span>
+          </div>
+          <nav>
+            <ul>
+              {{#each allTasks}}
+              {{> sidebarTask}}
+              {{/each}}
+            </ul>
+          </nav>
+        </div>
+
+        <div class="completed">
+          <div class="col" data-cate="complete">
+            <h1>Completed</h1>
+            <span class="small_number">{{totalCompleted}}</span>
+          </div>
+          <nav>
+            <ul>
+              {{#each completedTasks}}
+              {{> sidebarTask}}
+              {{/each}}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </script>
+
+    <script id="todos" type="text/x-handlebars">
+      <h1>{{category}}</h1>
+      <span class="selected_span small_number">{{total}}</span>
+
+      <div class="container" data-id="{{currentId}}">
+        <a class="add-todo" href="#">Add new to do</a>
+      </div>
+
+      <ul class="todo-list">
+        {{#each todoTasks}}
+        {{> todoTask}}
+        {{/each}}
+      </ul>
+      <div class="modal_layer"></div>
+      <div class="modal"></div>
+    </script>
+
+    <script id="sidebarTask" data-type="partial" type="text/x-handlebars">
+      <li class="sidebar-task" data-cate="{{data}}">
+        <p>{{dueDate}}</p>
+        <span class="small_number">{{total}}</span>
+      </li>
+    </script>
+
+    <script id="modal" type="text/x-handlebars">
+      <form id="modalForm" data-id="{{id}}">
+        <div class="form_group">
+          <label class="clear">Title</label>
+          <input type="text" name="title" placeholder="Item 1" value="{{title}}">
+        </div>
+
+        <div class="form_group due_date">
+          <label for="due" class="clear">Due Date</label>
+          <div class="date">
+            <select id="day" name="day">
+              <option>{{day}}</option>
+              <option value="01">1</option>
+              <option value="02">2</option>
+              <option value="03">3</option>
+              <option value="04">4</option>
+              <option value="05">5</option>
+              <option value="06">6</option>
+              <option value="07">7</option>
+              <option value="08">8</option>
+              <option value="09">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>  /
+            <select id="month" name="month">
+              <option>{{month}}</option>
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select> /
+            <select id="year" name="year" placeholder="year">
+              <option>{{year}}</option>
+              <option>2014</option>
+              <option>2015</option>
+              <option>2016</option>
+              <option>2017</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form_group">
+          <label for="description" class="clear">Description</label>
+          <textarea id="description" name="description" placeholder="Description" cols="50" rows="10">{{description}}</textarea>
+        </div>
+
+        <div class="buttons">
+          <input type="submit" value="Save">
+          <button class="complete">
+            {{#if completed}}
+            Mark As Incomplete
+            {{else}}
+            Mark As Complete
+            {{/if}}
+          </button>
+        </div>
+      </form>
+    </script>
+
+    <script id="todoTask" data-type="partial" type="text/x-handlebars">
+      <li data-id="{{id}}" class="todo-task">
+        <div class="todo-container {{#if completed}}checked{{/if}}">
+          <span class="check"></span>
+          <input type="checkbox" data-id="{{id}}" class="hidden" id="{{id}}">
+          <label class="edit" for="{{id}}">{{title}} - {{dueDate}}</label>
+        </div>
+        <div class="trash-container">
+          <a class="delete" href="#"></a>
+        </div>
+      </li>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="js/lib/templates.js"></script>
+    <script src="js/lib/modal.js"></script>
+    <script src="js/lib/storage.js"></script>
+    <script src="js/lib/todos.js"></script>
+    <script src="js/lib/manager.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

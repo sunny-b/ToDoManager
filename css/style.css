@@ -1,0 +1,437 @@
+/****************
+General
+****************/
+
+html, body, header, .header_content, main {
+  height: 100%;
+}
+
+
+/****************
+Typography
+****************/
+
+body {
+  font: 300 16px Helvetica, Arial, sans-serif;
+}
+
+
+/****************
+Hamburger
+****************/
+
+#menu-toggle {
+  display: none;
+}
+
+label[for="menu-toggle"] {
+  display: inline-block;
+  position: absolute;
+  left: 30px;
+  top: 25px;
+  z-index: 1;
+  visibility: hidden;
+}
+
+label[for="menu-toggle"] img {
+  cursor: pointer;
+}
+
+
+/****************
+Header
+****************/
+
+header {
+  float: left;
+}
+
+.header_content {
+  width: 335px;
+  float: left;
+  background-color: #464f77;
+  box-sizing: border-box;
+  padding: 70px 0 100%;
+}
+
+.all_todos {
+  margin-bottom: 40px;
+}
+
+.col {
+  color: #fff;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.col h1 {
+  display: inline-block;
+  margin-right: 35px;
+  margin-left: 100px;
+}
+
+.all_todos h1 {
+  margin-right: 47px;
+}
+
+.header_content h1:before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  vertical-align: -6px;
+  margin-right: 5px;
+  background: transparent url("../assets/all_lists.png") 0 0 no-repeat;
+}
+
+.sidebar-task {
+  display: block;
+  padding-left: 130px;
+  font-size: 16px;
+  line-height: 40px;
+  color: rgba(255, 255, 255, 0.502);
+  position: relative;
+  cursor: pointer;
+}
+
+.sidebar-task p {
+  display: inline-block;
+  min-width: 95px;
+  margin-right: 38px;
+}
+
+.selected {
+  color: #fff;
+  background-color: #383f5f;
+}
+
+.selected span, .selected_span {
+  background-color: rgb(20, 143, 213) !important;
+  color: #fff !important;
+}
+
+.completed .check {
+  background-image: url("../assets/completed.png");
+  margin-right: 10px;
+}
+
+.completed p {
+  text-decoration: line-through;
+  margin-right: 39px;
+}
+
+
+/****************
+Small Numbers
+****************/
+
+.small_number {
+  width: 20px;
+  height: 20px;
+  line-height: 21px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+}
+
+.header_content span {
+  color: rgba(255, 255, 255, 0.702);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.col span {
+  width: 26px;
+}
+
+
+/****************
+Main
+****************/
+
+main {
+  overflow: hidden;
+  position: relative;
+  padding-right: 100px;
+  padding-left: 20px;
+  background-color: #fff;
+  color: #060606;
+}
+
+main h1 {
+  margin-top: 100px;
+  font-size: 21px;
+  position: relative;
+  padding-bottom: 40px;
+  padding-left: 12px;
+  font-weight: 300;
+  color: #050505;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+main h1 span {
+  color: #fff;
+  top: 3px;
+  left: 105px;
+}
+
+.container {
+  margin-bottom: 14px;
+}
+
+.add-todo {
+  color: #148fd5;
+  text-decoration: none;
+  padding-left: 12px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.add-todo:before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: transparent url("../assets/plus.png") 0 0 no-repeat;
+  padding-right: 13px;
+}
+
+
+/****************
+List
+****************/
+
+
+.todo-list,
+.todo-task {
+  width: 100%
+}
+
+.todo-task {
+  border-top: 1px solid rgb(231, 231, 231);
+  box-sizing: border-box;
+}
+
+.todo-list input[type="checkbox"] {
+  display: none;
+}
+
+.todo-list label {
+  line-height: 48px;
+  cursor: pointer;
+}
+
+.check {
+  height: 14px;
+  width: 14px;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid rgb(156, 156, 156);
+  margin-right: 12px;
+  vertical-align: -3px;
+}
+
+.todo-list .checked input[type="checkbox"] ~ label {
+  color: #b3b3b3;
+  text-decoration: line-through;
+}
+
+.checked .check {
+  border: none;
+  background-image: url("../assets/checked.png");
+}
+
+.todo-list label:hover,
+.todo-list .checked input[type="checkbox"] ~ label:hover {
+  color: #148fd5;
+}
+
+.todo-task {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-container {
+  flex: 1;
+  padding-left: 12px;
+}
+
+.todo-container:hover {
+  background-color: rgba(0, 100, 205, 0.2);
+}
+
+.trash-container {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  cursor: pointer;
+}
+
+.trash-container:hover {
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+.delete {
+  display: block;
+  align-self: center;
+  justify-content: flex-end;
+  margin: auto;
+  width: 16px;
+  height: 17px;
+  background: transparent url("../assets/trash.png") 0 0 no-repeat;
+}
+
+
+/****************
+Modal
+****************/
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 105px;
+  left: 102px;
+  width: 575px;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.modal_layer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+#modalForm {
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 35px 40px 37px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+#modalForm label {
+  text-decoration: none;
+  color: #060606;
+  cursor: default;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.form_group * {
+  flex: 0 75%;
+  padding-top: 10px;
+}
+
+.form_group label {
+  flex-basis: 25%;
+}
+
+.due_date label {
+  align-self: center;
+}
+
+ .edit {
+  color: #060606;
+}
+
+input[type="text"],
+select,
+textarea {
+  font-size: 16px;
+  padding: 10px 0 10px 5px;
+  border: 1px solid #b3b3b3;
+}
+
+.modal input[type="text"] {
+  width: 394px;
+  float: right;
+}
+
+select {
+  width: 118px;
+  height: 35px;
+  background-color: white;
+  color: #757575;
+}
+
+select::-webkit-inner-spin-button,
+select::-webkit-outer-spin-button {
+   opacity: 1;
+}
+
+textarea {
+  width: 394px;
+  height: 124px;
+  margin-bottom: 25px;
+  resize: none;
+}
+
+.buttons {
+  display: flex;
+  width: 384px;
+  align-self: flex-end;
+  justify-content: space-between;
+}
+
+.buttons * {
+  height: 35px;
+  width: 185px;
+  display: inline-block;
+  -webkit-appearance: none;
+  border: none;
+  background-color: rgb(20, 143, 213);
+  box-shadow: none;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0 9px;
+  cursor: pointer;
+}
+
+.buttons input:first-child {
+  margin-left: 0;
+}
+
+/****************
+Queries
+****************/
+
+@media (max-width: 700px) {
+
+  /****************
+  Hamburger
+  ****************/
+
+  label[for="menu-toggle"] {
+    visibility: visible;
+  }
+
+  .header_content {
+    display:none;
+  }
+
+  #menu-toggle:checked ~ .header_content {
+    display: block;
+  }
+
+  #menu-toggle:checked + label {
+    left: 365px;
+  }
+
+}
